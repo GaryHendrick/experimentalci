@@ -32,9 +32,9 @@ node {
         echo "${filescoped} was declared in the file scope"
         echo "${nodescoped} was declared in the node scope"
         try { echo "${scoped_past} was declared in the scoped_past" }
-        catch { echo "the staged_past variable is not available within this stage" }
+        catch (e) { echo "the staged_past variable is not available within this stage" }
         try { echo "${scoped_future} will be declared in scoped_future" }
-        catch { echo "the staged_future variable is not available within this stage" }
+        catch (e) { echo "the staged_future variable is not available within this stage" }
     }
 
     // This stage provides a location in which you can test the scope of declartions conducted south of present
