@@ -1,10 +1,11 @@
 // This Jenkinsfile is just for experimentation
+
+def callme()
+{
+    echo 'callme'
+}
 node {
-    stage('Example') {
-        if (env.BRANCH_NAME == 'master') {
-            echo 'I only execute on the master branch'
-        } else {
-            echo 'I execute elsewhere'
-        }
+    stage('Function') {
+        callme()
     }
 }
