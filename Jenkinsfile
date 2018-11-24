@@ -24,6 +24,9 @@ node {
     stage("past")
     {
         def staged_past = "staged_past"
+        static foo() {
+            print "foo"
+        }
     }
 
     // This stage attempts to access a number of variables declared in previous scopes
@@ -35,6 +38,12 @@ node {
         catch (e) { echo "the staged_past variable is not available within this stage" }
         try { echo "${scoped_future} will be declared in scoped_future" }
         catch (e) { echo "the staged_future variable is not available within this stage" }
+
+        try {
+            foo()
+        } catch (e) {
+            print "${e}"
+        }
     }
 
     // This stage provides a location in which you can test the scope of declartions conducted south of present
